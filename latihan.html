@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Latihan 1</title>
+</head>
+<body>
+    <div id="app" class="main container">
+        <header id="header">
+            <div class="logo">
+            <h1>Website</h1>
+            </div>
+        </header>
+
+        <nav id="nav">
+            <router-link to="/">Home</router-link>
+            <router-link to="/Blog">Blog</router-link>
+            <router-link to="/Gallery" >Gallery</router-link>
+            <router-link to="/About">About</router-link>
+            <router-link to="/Contact">Contact</router-link>
+        </nav>
+
+        <div id="inti" class="inti">
+            <router-view></router-view>
+
+            
+        </div>
+            
+        <footer id="footer">
+            <p>copyright &copy; 2021 <span>Aurellio Fishandy</span>. the easiest way to create a website </p>
+        </footer>
+        </div>
+</body>
+
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+
+<script>
+    const Home = { template: `
+        <div class="content">
+                <div class="hero">
+                    <div class="caption">
+                        <h1>The best design choices</h1>
+                        <p>Mozello gives you the best design choices for your very special website</p>
+                    </div>
+                </div>
+                <div id="cards" class="cards">
+                    <div id="card" class="card1">
+                        <div class="nama">Amazing speed</div>
+                        <div class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, mollitia.</div>
+                        <a href="">More Info</a>
+                    </div>
+                    <div id="card" class="card2">
+                        <div class="nama">Easy of use</div>
+                        <div class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, mollitia.</div>
+                        <a href="">More Info</a>
+                    </div>
+                    <div id="card" class="card3">
+                        <div class="nama">Zero cost</div>
+                        <div class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, mollitia.</div>
+                        <a href="">More Info</a>
+                    </div>
+                </div>
+                <p class="pa">You are just 5 minutes away from your very own website</p>
+            </div>` }
+    const Blog = {
+        template: '<div>Blog</div>'
+    }
+    const Gallery = {
+        template: '<div>Gallery</div>'
+    }
+    const About = {
+        template: '<div>About</div>'
+    }
+    const Contact = {
+        template: '<div>Contact</div>'
+    }
+
+    const routes = [
+        {path: '/', component: Home},
+        {path: '/Blog', component: Blog},
+        {path: '/Gallery', component: Gallery},
+        {path: '/About', component: About},
+        { path: '/Contact', component: Contact }
+    ]
+
+    const router = new VueRouter({
+        routes
+    })
+
+    const vm = new Vue({
+        el: '#app',
+        router
+    })
+
+</script>
+</html>
